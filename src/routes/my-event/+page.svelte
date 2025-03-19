@@ -38,6 +38,17 @@
 </script>
 
 <h1>My Events</h1>
+<form
+    on:submit|preventDefault={() => {
+        addEvent({ name, date, user, participations });
+    }}
+>
+    <label for="name">Name</label>
+    <input type="text" id="name" bind:value={name} />
+    <label for="date">Date</label>
+    <input type="datetime-local" id="date" bind:value={date} />
+    <button type="submit">Add event</button>
+</form>
 <!-- Display event as cards-->
 {#each events.member as event}
     <div>
@@ -52,14 +63,3 @@
         </form>
     </div>
 {/each}
-<form
-    on:submit|preventDefault={() => {
-        addEvent({ name, date, user, participations });
-    }}
->
-    <label for="name">Name</label>
-    <input type="text" id="name" bind:value={name} />
-    <label for="date">Date</label>
-    <input type="datetime-local" id="date" bind:value={date} />
-    <button type="submit">Add event</button>
-</form>
