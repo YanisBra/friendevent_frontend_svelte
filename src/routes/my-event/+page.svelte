@@ -54,6 +54,12 @@
     <div>
         <h2>ID : {event.id} - {event.name}</h2>
         <p>{event.date}</p>
+        <p>Participations :</p>
+        <ul>
+            {#each event.participations as participation}
+                <li>{participation}</li>
+            {/each}
+        </ul>
         <form
             on:submit|preventDefault={() => {
                 deleteEvent(event.id);
