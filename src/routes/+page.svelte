@@ -32,13 +32,6 @@
 </script>
 
 <h1>Events</h1>
-<!-- Display event as cards-->
-{#each events.member as event}
-  <div>
-    <h2>{event.name}</h2>
-    <p>{event.date}</p>
-  </div>
-{/each}
 <form
   on:submit|preventDefault={() => {addEvent({ name, date, user, participations });}}
 >
@@ -48,3 +41,10 @@
   <input type="datetime-local" id="date" bind:value={date} />
   <button type="submit">Add event</button>
 </form>
+<!-- Display event as cards-->
+{#each events.member as event}
+  <div>
+    <h2>{event.name}</h2>
+    <p>{event.date}</p>
+  </div>
+{/each}
